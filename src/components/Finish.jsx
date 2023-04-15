@@ -80,10 +80,10 @@ export default function Finish() {
         </div>
       )}
       <div style={{ padding: "12px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-        {/* borderRadius: "22vh", border: "3px solid darkgreen", marginBottom: "5vh" */}
         <img src={Logo} alt="Logo" style={{ height: "28vh" }} />
-        <div style={{ width: "100%" }}>
           <div className="divider"></div>
+        <h1 style={{ color: "var(--colors-brandAccent)", fontSize: "2.2rem", fontWeight: "bold" }}>Finish Your Profile</h1>
+        <div style={{ width: "100%" }}>
           <form onSubmit={onSubmitHandler}>
             <div style={{ display: "flex", flexDirection: "column", gap: "50px" }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
