@@ -2,9 +2,9 @@ import { supabaseClient } from "../utils/supabaseClient";
 import { Navigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
-export default function ProfileFinish() {
+export default function Redirecting() {
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState(false);
+  const [complete_profile, setProfile] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -13,10 +13,18 @@ export default function ProfileFinish() {
         console.log(error);
       } else {
         console.log(data);
+        setProfile(data[0].complete);
+        //setLoading(false);
+        console.log(complete_profile);
       }
+      
     }
     fetchData();
   }, []);
 
-  return <div>ProfileFinish</div>;
+  return (
+    loading ? <div style={{height:"100vh", width:"100vw", backgroundColor:"darkgreen"}}>Loading...</div> 
+            : complete_profile ? <Navigate to="/" />
+                               : <Navigate to="/finish_profile" />
+    );
 }

@@ -35,12 +35,12 @@ export default function PageLayout() {
         <Navigate to="/login" />
       ) : (
         <Container fluid style={{ minHeight: "100vh" }}>
-          <Row style={{ alignItems: "center", height: "10vh", backgroundColor: "#c6c6c6", padding: "8px" }}>
+          <Row style={{ alignItems: "center", padding: "1.5vh 3vw" }}>
             <TopBar />
           </Row>
           <Row style={{ height: "80vh" }}>
             <Outlet />
-            <Button onClick={() => supabaseClient.auth.signOut()}>Logout</Button>
+            {/* <Button onClick={() => supabaseClient.auth.signOut()}>Logout</Button> */}
           </Row>
           <Row style={{ alignItems: "center", height: "10vh", backgroundColor: "#c6c6c6", padding: "8px" }}>
             <NavBar />

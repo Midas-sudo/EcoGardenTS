@@ -1,5 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 
+:root {
+  --colors-brand: #63a731;
+  --colors-brandPastel: #EEF7E8;
+  --colors-brandAccent: #61AF2B;
+  --colors-brandButtonText: white;
+  --colors-defaultButtonBackground: white;
+  --colors-defaultButtonBackgroundHover: #eaeaea;
+  --colors-defaultButtonBorder: lightgray;
+  --colors-defaultButtonText: gray;
+  --colors-dividerBackground: darkgreen;
+  --colors-inputBackground: transparent;
+  --colors-inputBorder: lightgray;
+  --colors-inputBorderHover: gray;
+  --colors-inputBorderFocus: gray;
+  --colors-inputText: black;
+  --colors-inputLabelText: gray;
+  --colors-inputPlaceholder: darkgray;
+  --colors-messageText: gray;
+  --colors-messageTextDanger: red;
+  --colors-anchorTextColor: gray;
+  --colors-anchorTextHoverColor: darkgray;
+  --space-spaceSmall: 4px;
+  --space-spaceMedium: 8px;
+  --space-spaceLarge: 16px;
+  --space-labelBottomMargin: 8px;
+  --space-anchorBottomMargin: 4px;
+  --space-emailInputSpacing: 4px;
+  --space-socialAuthSpacing: 4px;
+  --space-buttonPadding: 10px 15px;
+  --space-inputPadding: 10px 15px;
+  --fontSizes-baseBodySize: 13px;
+  --fontSizes-baseInputSize: 14px;
+  --fontSizes-baseLabelSize: 14px;
+  --fontSizes-baseButtonSize: 14px;
+  --fonts-bodyFontFamily: 'DM Sans', sans-serif;
+  --fonts-buttonFontFamily: 'DM Sans', sans-serif;
+  --fonts-inputFontFamily: 'DM Sans', sans-serif;
+  --fonts-labelFontFamily: 'DM Sans', sans-serif;
+  --borderWidths-buttonBorderWidth: 1px;
+  --borderWidths-inputBorderWidth: 1px;
+  --radii-borderRadiusButton: 4px;
+  --radii-buttonBorderRadius: 4px;
+  --radii-inputBorderRadius: 4px;
+}
+
 body,
 html {
   margin: 0;
@@ -9,7 +54,7 @@ html {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
+  background-color: #FFFFFF;
 }
 
 
@@ -21,4 +66,106 @@ html {
 
 * {
   box-sizing: border-box;
+}
+
+
+
+.input-field {
+  font-family: var(--fonts-inputFontFamily);
+  background: var(--colors-inputBackground);
+  border-radius: var(--radii-inputBorderRadius);
+  padding: var(--space-inputPadding);
+  cursor: text;
+  border-width: var(--borderWidths-inputBorderWidth);
+  border-color: var(--colors-inputBorder);
+  border-style: solid;
+  font-size: var(--fontSizes-baseInputSize);
+  width: 100%;
+  color: var(--colors-inputText);
+  box-sizing: border-box;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 100ms;
+}
+
+.input-field:hover {
+  border-color: var(--colors-inputBorderHover);
+  outline: none;
+}
+
+.button {
+  font-family: var(--fonts-buttonFontFamily);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: var(--radii-borderRadiusButton);
+  font-size: var(--fontSizes-baseButtonSize);
+  padding: var(--space-buttonPadding);
+  cursor: pointer;
+  border-width: var(--borderWidths-buttonBorderWidth);
+  border-style: solid;
+  width: 100%;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 100ms;
+}
+
+.button.color-primary {
+  background-color: var(--colors-brand);
+  color: var(--colors-brandButtonText);
+  border-color: var(--colors-brandAccent);
+}
+
+.label {
+  font-family: var(--fonts-labelFontFamily);
+  font-size: var(--fontSizes-baseLabelSize);
+  margin-bottom: var(--space-labelBottomMargin);
+  color: var(--colors-inputLabelText);
+  display: block;
+}
+
+.divider {
+  background: var(--colors-dividerBackground);
+  display: block;
+  margin: 16px 0px;
+  height: 1px;
+  width: 100%;
+}
+
+p {
+  font-family: var(--fonts-labelFontFamily);
+  margin-bottom: var(--space-labelBottomMargin);
+  color: #333333;
+  display: block;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.dropdown {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+.dropdown>button {
+  width: 100%;
+  background-color: var(--colors-brandPastel) !important;
+  color: var(--colors-brand) !important;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+
+}
+
+.dropdown>button::after {
+  display: inline-block;
+  margin-left: 65%;
+}
+
+.dropdown>div {
+  width: 100%;
+
+}
+
+.dropdown>div>a:active {
+  background-color: var(--colors-brandAccent);
+
 }

@@ -25,7 +25,7 @@ function Login() {
     <>
       {loading ? (
         <div>Loading...</div>
-      ) : logged ? (
+      ) : !logged ? (
         <Navigate to="/" />
       ) : (
         <div style={{ padding: "12px", display: "flex", flexDirection: "column", alignItems: "center" }}>

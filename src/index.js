@@ -2,8 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import PageLayout from "./PageLayout";
 import ErrorPage from "./pages/ErrorPage";
+
+import MainPage from "./pages/MainPage";
+
+
+
 import LoginPage from "./pages/LoginPage";
-import ProfileFinishPage from "./pages/ProfileFinishPage";
+import RedirectingPage from "./pages/RedirectingPage";
+import FinishPage from "./pages/FinishPage";
 
 import {
   createBrowserRouter,
@@ -17,7 +23,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <PageLayout />,
     errorElement: <ErrorPage />, children: [
-
+      {
+        path: "/",
+        element: <MainPage />,
+      }
     ],
   },
   {
@@ -25,8 +34,12 @@ const router = createBrowserRouter([
     element: <LoginPage />,
   }, 
   {
-    path: "finish_up/",
-    element: <ProfileFinishPage />,
+    path: "redirecting/",
+    element: <RedirectingPage />,
+  },
+  {
+    path: "finish_profile/",
+    element: <FinishPage />,
   }
 ]);
 
