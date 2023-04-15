@@ -152,12 +152,15 @@ p {
   font-weight: bold;
   border: none;
   border-radius: 8px;
+  text-align: left;
 
 }
 
 .dropdown>button::after {
   display: inline-block;
-  margin-left: 65%;
+  right: 5%;
+  position: absolute;
+  top: 45%;
 }
 
 .dropdown>div {

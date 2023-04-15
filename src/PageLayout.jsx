@@ -35,14 +35,14 @@ export default function PageLayout() {
         <Navigate to="/login" />
       ) : (
         <Container fluid style={{ minHeight: "100vh" }}>
-          <Row style={{ alignItems: "center", padding: "1.5vh 3vw" }}>
+          <Row style={{ alignItems: "center",     padding: "1.5vh 3vw 0vh", height: "10vh"}}>
             <TopBar />
           </Row>
           <Row style={{ height: "80vh" }}>
             <Outlet />
             {/* <Button onClick={() => supabaseClient.auth.signOut()}>Logout</Button> */}
           </Row>
-          <Row style={{ alignItems: "center", height: "10vh", backgroundColor: "#c6c6c6", padding: "8px" }}>
+          <Row style={{ alignItems: "center", height: "10vh",  padding: "8px", boxShadow:"rgb(31 31 31 / 70%) 0 40px 150px 0" }}>
             <NavBar />
           </Row>
         </Container>

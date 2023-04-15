@@ -5,16 +5,17 @@ import { Dropdown } from "react-bootstrap";
 //     id: 2,
 // }
 
-export default function Drops({ options, value, onChange }) {
+export default function Drops({ options, value, onChange, text }) {
+  console.log(options, value, onChange);
   return (
     <Dropdown>
       <Dropdown.Toggle variant="success" id="dropdown-basic">
-        {options.find(({ id }) => id === value).label}
+        {options != [] ? (options.find(({ id }) => id === value) ? options.find(({ id }) => id == value).label : `No ${text}`) : `No ${text}`}
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
         {options.map((option) => (
-          <Dropdown.Item key={option.value} value={option.value} onClick={onChange}>
+          <Dropdown.Item key={option.id} value={option.value} onClick={onChange}>
             {option.label}
           </Dropdown.Item>
         ))}

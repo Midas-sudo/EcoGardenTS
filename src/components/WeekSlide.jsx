@@ -1,7 +1,6 @@
 export default function WeekSlide() {
   const days_of_week = ["M", "T", "W", "T", "F", "S", "S"];
   const nb_day = new Date().getDay();
-  console.log(nb_day);
 
   return (
     <>
