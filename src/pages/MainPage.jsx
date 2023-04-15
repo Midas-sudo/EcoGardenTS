@@ -5,6 +5,9 @@ import Drops from "../components/Drops";
 import { useEffect, useState } from "react";
 import { supabaseClient } from "../utils/supabaseClient";
 
+import PlantSettings from "../components/PlantSettings";
+import ValuesZone from "../components/ValuesZone";
+
 export default function MainPage() {
   const [devices, setDevices] = useState([]);
   const [favourites, setFavourites] = useState([]);
@@ -95,6 +98,9 @@ export default function MainPage() {
       <Drops options={devices} value={1} text="Devices" />
       <Drops options={favourites} value="3" text="Favourites" />
       <WeekSlide />
+      <PlantSettings />
+      <div className="divider"></div>
+      <ValuesZone />
     </div>
   );
 }

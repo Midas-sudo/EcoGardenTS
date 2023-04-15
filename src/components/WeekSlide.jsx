@@ -4,7 +4,7 @@ export default function WeekSlide() {
 
   return (
     <>
-      <p>Scheculed for this week</p>
+      <p>Watering Plan</p>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         {days_of_week.map((day, idx) => {
           return <Day key={idx} day_week={day} selected={nb_day - 1 == idx || (idx == 6 && nb_day == 0)} watering={idx % 2 == 0} />;
