@@ -1,11 +1,21 @@
-export default function Sensor({ type, name, min, max, value }) {
+import Bar from "./Bar";
+
+export default function Sensor({ left, type, name, min, max, value }) {
   console.log(type, name, min, max, value);
+  let _value;
+  if (type == 0) _value = value + "°C";
+  if (type == 1) _value = value + "%";
 
   return (
-    <div style={{ display: "flex" }}>
-      {type == 0 && temperature()}
-      {type == 1 && humidity()}
-      {`${name}`}
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+      <div style={{ width: "35%" }}>
+        {" "}
+        {type == 0 && temperature()}
+        {type == 1 && humidity()}
+        {`${name}`}
+      </div>
+      <Bar type={type} min={min} max={max} value={value} left={left} />
+      <label style={{}}>{_value}</label>
     </div>
   );
 }
