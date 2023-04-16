@@ -10,11 +10,11 @@ import ValuesZone from "../components/ValuesZone";
 
 export default function MainPage() {
   const [devices, setDevices] = useState([]);
-  const [favourites, setFavourites] = useState([]);
+  // const [favourites, setFavourites] = useState([]);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [loadingDevices, setLoadingDevices] = useState(true);
-  const [loadingFavourites, setLoadingFavourites] = useState(true);
+  // const [loadingFavourites, setLoadingFavourites] = useState(true);
 
   async function fetchDevices() {
     if (user != null) {
@@ -32,23 +32,22 @@ export default function MainPage() {
       setLoadingDevices(false);
     }
   }
-  async function fetchFavourites() {
-    if (user != null) {
-      user.favourites.map(async (favourite) => {
-        const { data, error } = await supabaseClient.from("Plant Profiles").select().eq("id", favourite);
-        if (error) {
-          console.log(error);
-        } else {
-          setFavourites((favourites) => [...favourites, data[0]]);
-        }
-      });
-      setLoadingFavourites(false);
-    }
-  }
+  // async function fetchFavourites() {
+  //   if (user != null) {
+  //     user.favourites.map(async (favourite) => {
+  //       const { data, error } = await supabaseClient.from("Plant Profiles").select().eq("id", favourite);
+  //       if (error) {
+  //         console.log(error);
+  //       } else {
+  //         setFavourites((favourites) => [...favourites, data[0]]);
+  //       }
+  //     });
+  //     setLoadingFavourites(false);
+  //   }
+  // }
 
   useEffect(() => {
     fetchDevices();
-    fetchFavourites();
   }, [user]);
 
   useEffect(() => {
@@ -76,26 +75,42 @@ export default function MainPage() {
   //   },
   // ];
 
-  // const favourites = [
-  //   {
-  //     label: "Tomato",
-  //     id: "1",
-  //   },
-  //   {
-  //     label: "Potato",
-  //     id: "2",
-  //   },
-  //   {
-  //     label: "Cucumber",
-  //     id: "3",
-  //   },
-  // ];
+  const favourites = [
+    {
+      label: "Tomatos",
+      id: "1",
+      humidity: {
+        min: 50,
+        max: 70,
+      },
+      temperature: {
+        min: 22,
+        max: 26,
+      },
+    },
+    {
+      label: "Lettuce",
+      id: "2",
+      humidity: {
+        min: 50,
+        max: 70,
+      },
+      temperature: {
+        min: 13,
+        max: 18,
+      },
+    },
+    {
+      label: "Cucumbers",
+      id: "3",
+    },
+  ];
 
-  return loading || loadingDevices || loadingFavourites ? (
+  return loading || loadingDevices ? (
     <div>Loading...</div>
   ) : (
     <div style={{ padding: "3vw" }}>
-      <Drops options={devices} value={1} text="Devices" />
+      <Drops options={devices} value={14} text="Devices" />
       <Drops options={favourites} value="3" text="Favourites" />
       <WeekSlide />
       <PlantSettings />
